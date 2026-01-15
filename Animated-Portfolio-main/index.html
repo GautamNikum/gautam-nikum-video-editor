@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- responsive screen size viewport code-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Creative and detail-oriented Video Editor specializing in producing engaging content for social media, marketing campaigns, and YouTube" />
+    <meta property="og:title" content="Gautam Nikum - Professional Video Editor" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/profile.jpg" />
+    <meta property="og:url" content="https://gautam-nikum.vercel.app/" />
+    <title>Gautam Nikum - Video Editor</title>
+    <!--Link to CSS reset-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- Link to CSS style sheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <style>
+      /* Experience Section Styles */
+      .experience-item {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .experience-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      
+      .company-logo {
+        background: #f5f5f5;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+      }
+      
+      .company-logo i {
+        font-size: 24px;
+        color: #333;
+      }
+      
+      .experience-details {
+        flex: 1;
+      }
+      
+      .experience-details h4 {
+        margin: 0 0 5px 0;
+        color: #333;
+        font-size: 1.4rem;
+      }
+      
+      .company-link {
+        color: #333;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
+      
+      .company-link:hover {
+        color: #E1306C;
+      }
+      
+      .company-link .fa-instagram {
+        margin-left: 8px;
+        font-size: 1.1rem;
+        color: #E1306C;
+      }
+      
+      .company-link:hover .fa-instagram {
+        transform: scale(1.1);
+      }
+      
+      /* Companies Section Styles */
+      .company-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 25px 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      
+      .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-color: #ddd;
+      }
+      
+      .company-content {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+      }
+      
+      .company-content h4 {
+        color: #333;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      
+      .company-content p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+      
+      .instagram-btn {
+        background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        color: white !important;
+        border-radius: 25px;
+        padding: 0 20px;
+        line-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .instagram-btn i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+      }
+      
+      .instagram-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+      
+      .position {
+        font-weight: 600;
+        color: #666;
+        margin: 0 0 5px 0;
+      }
+      
+      .duration {
+        color: #888;
+        font-size: 0.9rem;
+        margin: 0 0 15px 0;
+      }
+      
+      .responsibilities {
+        margin: 15px 0 0 0;
+        padding-left: 20px;
+      }
+      
+      .responsibilities li {
+        margin-bottom: 8px;
+        color: #555;
+        line-height: 1.5;
+      }
+      
+      /* Video Preview Styles */
+      .video-preview {
+        margin: 20px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: white;
+      }
+      
+      .video-preview:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      
+      .video-thumbnail {
+        position: relative;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+        background: #000;
+      }
+      
+      .video-thumbnail img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .video-preview:hover .video-thumbnail img {
+        transform: scale(1.03);
+        opacity: 0.9;
+      }
+      
+      .play-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        text-align: center;
+        opacity: 1;
+        transition: all 0.3s ease;
+      }
+      
+      .video-preview:hover .play-overlay {
+        background: rgba(0, 0, 0, 0.4);
+      }
+      
+      .play-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+      
+      .play-circle i {
+        color: #E1306C;
+        font-size: 40px;
+        margin-left: 5px;
+      }
+      
+      .play-overlay span {
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      }
+      
+      .video-info {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .video-info h4 {
+        margin: 0 0 5px 0;
+        color: #333;
+        font-size: 1.4rem;
+      }
+      
+      .video-info p {
+        margin: 0;
+        color: #666;
+        font-size: 1rem;
+      }
+      
+      .video-link {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .row {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+      
+      .col {
+        padding: 0 15px;
+      }
+      
+      .section-heading {
+        margin: 0 0 40px 0;
+        text-align: center;
+        font-size: 2.5rem;
+        color: #333;
+        padding: 0 15px;
+      }
+    </style>
+    <!-- Favicon link -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- Link to Materialize-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Materialize Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"/>
+    <!-- GSAP Greensock Animation cdn, scroll trigger, scroll to -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+  </head>
+
+<body>
+  <header>
+
+    <!-- Animated title -->
+    <section id="home">
+      <div class="container">
+        <div class="row heading">
+          <div class="col l6 m6 s12">
+            <h1 class="title">GAUTAM<br>NIKUM</h1>
+          </div>
+          <div class="col l6 m6 s12">
+            <h2 class="sub-title">Video Editor</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation bar -->
+      <div id="nav-wrapper">
+        <nav class="nav-center z-depth-0">
+          <ul id="nav-mobile">
+            <li><a href="#home" class="anchor">Home</a></li>
+            <li><a href="#explore" class="anchor">Explore</a></li>
+            <li><a href="#about" class="anchor">About</a></li>
+            <li><a href="#skills" class="anchor">Skills</a></li>
+            <li><a href="#contact" class="anchor">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Mobile navigation -->
+      <div id="mobile-nav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#home" class="anchor">Home</a>
+          <a href="#explore" class="anchor">Explore</a>
+          <a href="#about" class="anchor">About</a>
+          <a href="#skills" class="anchor">Skills</a>
+          <a href="#contact" class="anchor">Contact</a>
+        </div>
+      </div>
+      <div id="side-nav">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      </div>
+    </section>
+
+  </header>
+
+    <!-- MAIN CONTENT -->
+
+  <div class="main-site-wrapper">
+    <!-- Explore Section - Scrollspy -->
+        <div class="container">
+          <h3 class="section-heading">Explore My Work</h3>
+          <div id="explore" class="section scrollspy">
+          <div class="row"> 
+            <div class="col l12 m12 s12">
+              <div class="video-container">
+                <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/dA77FDXUb28" 
+                title="My Video Editing Work" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col l12 m12 s12">
+              <div class="video-preview">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DTc0iX0D7GG/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Video Sections -->
+          <div class="row">
+            <div class="col l6 m6 s12">
+              <div class="video-preview">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRUfv8ZiENE/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+            <div class="col l6 m6 s12">
+              <div class="video-preview">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DNfWwtKzG7L/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l6 m6 s12">
+              <div class="video-preview">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR4i6cSiP72/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+            <div class="col l6 m6 s12">
+              <div class="video-preview">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRXHdEACB4v/" data-instgrm-version="14" style="background:#fff;border:0;margin:0 auto;max-width:540px;width:100%;">
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- About section - Scrollsby  -->
+    
+        <div class="container">
+          <h3 class="section-heading">About Me</h3>
+          <div id="about" class="section scrollspy">
+          <div class="row">
+            <div class="col l12 m12 s12">
+                <p id="about-info">
+                  <img id="owen-pic" style="border: white 1px solid;" class="hide-on-med-and-down"
+                  src="assets/images/profile image.JPG"
+                  alt="Gautam Nikum Video Editor"/>
+                  <img id="owen-pic-3" class="hide-on-large-only"
+                  src="assets/images/profile image.JPG"
+                  alt="Gautam Nikum Video Editor"/>
+                      Creative and detail-oriented Video Editor specializing in producing engaging content for social media, 
+                      marketing campaigns, and YouTube. Skilled in storytelling, color grading, audio syncing, and motion graphics 
+                      to transform raw footage into polished videos. Adept at creating reels, ads, and promotional content while 
+                      ensuring alignment with brand guidelines. Passionate about delivering impactful visual stories, thriving in 
+                      collaborative teams, and meeting deadlines across multiple projects.
+                <br><br>
+                      With experience at Talent Catalyst AI as a Freelance Video Editor and previously at DebugShala, Indore, 
+                      I've developed expertise in creating promotional videos, ad creatives, and branded content tailored for 
+                      digital marketing campaigns. My work focuses on driving engagement, conversions, and brand awareness through 
+                      platform-optimized video content.
+                <br><br>
+                      I specialize in trend-driven content creation to boost virality and connect with target audiences. 
+                      My technical skills include using AI tools like Runway ML, Nano Banana, Kapwing AI, and more for 
+                      auto-captioning, video upscaling, background removal, and idea generation to enhance workflows.
+                </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+      <!-- Skills Section ---Scrollsby-->
+     
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+          <div class="row">
+            <h3 class="section-heading">My Skills</h3>
+            <div id="skills" class="section scrollspy">
+            <div class="col l7 m7 s12">
+              <div class="step-description">
+                <div class="row">
+                  <h4>Video Editing Skills</h4>
+                </div>
+                <div class="row">
+                  <ul>
+                    <li> ■  Video Editing & Post-Production</li>
+                    <li> ■  Color Grading & Correction</li>
+                    <li> ■  Motion Graphics & Animation</li>
+                    <li> ■  Typoghraphy & Branding</li>
+                    <li> ■  Storyboarding & Scripting</li>
+                    <li> ■  Social Media Content Creation</li>
+                    <li> ■  Branded Content Development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col l5 m5 s12">
+              <!-- <div class="row">
+                <h4 id="soft-title">Tools & Technologies</h4>
+              </div>
+              <div class="row">
+              <div class="col l6 m6 s6">
+                <div>
+                  <img class="skills" src="assets/images/skills-02.png" alt="Adobe Premiere Pro">
+                    <p class="list-text">Adobe Premiere <br>Pro</p>
+                  <img class="skills" src="assets/images/skills-01.png" alt="After Effects">
+                    <p class="list-text">After <br>Effects</p>
+                </div>
+              </div> -->
+              <!-- <div class="col l6 m6 s6">
+                <div>
+                  <img class="skills" src="assets/images/skills-04.png" alt="DaVinci Resolve">
+                    <p class="list-text">DaVinci <br>Resolve</p>
+                  <img class="skills" src="assets/images/skills-03.png" alt="AI Tools">
+                    <p class="list-text">AI Video Tools</p>
+                </div>
+              </div>
+              </div> -->
+                <div class="wrap-around">
+                  <div class="arrow-down">
+                    <i class="large material-icons">arrow_drop_down</i>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+  
+    </div>
+
+    <!-- Companies Section -->
+    <div class="section" style="padding: 40px 0; background-color: #f9f9f9;">
+      <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 15px;">
+        <h3 class="section-heading" style="margin-bottom: 30px;">Companies I've Worked With</h3>
+        <div id="companies" class="section scrollspy">
+          <div class="row" style="margin: 0 -10px;">
+            <div class="col l6 m6 s12" style="padding: 0 10px; margin-bottom: 20px;">
+              <div class="company-card" style="margin: 0; height: 100%;">
+                <div class="company-content">
+                  <div style="text-align: center; margin-bottom: 15px;">
+                    <img src="assets/images/Certificate.pdf.jpg" alt="DebugShala Logo" style="max-width: 80px; max-height: 80px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                  </div>
+                  <h4 style="margin-top: 0;">DebugShala</h4>
+                  <p style="margin-bottom: 20px;">Indore, India</p>
+                  <a href="https://www.instagram.com/debugshala/" target="_blank" rel="noopener noreferrer" class="btn instagram-btn" style="margin-top: auto;">
+                    <i class="fab fa-instagram"></i> Visit Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col l6 m6 s12" style="padding: 0 10px; margin-bottom: 20px;">
+              <div class="company-card" style="margin: 0; height: 100%;">
+                <div class="company-content">
+                  <div style="text-align: center; margin-bottom: 15px;">
+                    <img src="assets/images/talent logo].jpg" alt="Talent Catalyst AI Logo" style="max-width: 80px; max-height: 80px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                  </div>
+                  <h4 style="margin-top: 0;">Talent Catalyst AI</h4>
+                  <p style="margin-bottom: 20px;">Remote</p>
+                  <a href="https://www.instagram.com/ai_talentcatalyst/" target="_blank" rel="noopener noreferrer" class="btn instagram-btn" style="margin-top: auto;">
+                    <i class="fab fa-instagram"></i> Visit Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact section - Scrollspy -->
+  <div class="wave">
+    <div id="contact" class="section scrollspy" style="padding: 60px 0;">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <h3 class="section-heading" id="contact-title">Contact Me</h3>
+        
+        <div class="row contact-content">
+          <div id="contact-wrapper">
+            
+            <!-- Email -->
+            <div class="contact-item">
+              <div class="row center-align">
+                <i class="small material-icons contact-icon">email</i>
+              </div>
+              <div class="row">
+                <h5 class="center-align c-labels">
+                  <a href="mailto:gautamnikum147@gmail.com" target="_blank">EMAIL</a>
+                </h5>
+              </div>
+            </div>
+            
+            <!-- Phone -->
+            <div class="contact-item">
+              <div class="row center-align">
+                <i class="small material-icons contact-icon">phone</i>
+              </div>
+              <div class="row">
+                <h5 class="center-align c-labels">
+                  <a href="tel:+919171054803">+91 9171054803</a>
+                </h5>
+              </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="contact-item">
+              <div class="row center-align">
+                <i class="small material-icons contact-icon">location</i>
+              </div>
+              <div class="row">
+                <h5 class="center-align c-labels">
+                  Palasia, Indore (MP)
+                </h5>
+              </div>
+            </div>
+            
+            <!-- LinkedIn -->
+            <div class="contact-item">
+              <div class="row center-align">
+                <i class="small material-icons contact-icon">link</i>
+              </div>
+              <div class="row">
+                <h5 class="center-align c-labels">
+                  <a href="https://www.linkedin.com/in/gautamnikum/" target="_blank">LINKEDIN</a>
+                </h5>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave upper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#171717" fill-opacity="1" d="M0,32L1440,128L1440,320L0,320Z"></path></svg>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div id="c-right">Copyright &copy; 2024 Gautam Nikum - Video Editor</div>
+  </footer>
+
+<!--Javascript file-->
+<script src="assets/javascript/logic.js"></script>
+<script async defer src="https://www.instagram.com/embed.js"></script>
+
+</body>
+</html>
