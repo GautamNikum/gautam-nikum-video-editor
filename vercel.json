@@ -1,9 +1,17 @@
 {
   "framework": null,
-  "builds": [
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
